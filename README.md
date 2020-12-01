@@ -1,6 +1,9 @@
 # Image Style Transfer Network
 
 This is **Ganyu Wang (Computer Science MSc)**'s Computer Vision Final Project
+
+The model is still not well tuned. Working on. 
+
 Tensorflow-Keras implementation of neural style transformation network.
 The original article is Perceptual Losses for Real-Time Style Transfer and Super-Resolution https://arxiv.org/abs/1603.08155
 
@@ -10,11 +13,14 @@ instead of the Microsoft COCO dataset in google(the dataset in the paper).
 The implementation is both on **Linux (project folder)** and **Google colab (standalone ipynb file)**.
 
 # Train the transfer network in Linux or Windows
+## A) Training the transfer network
 ### Step 0: Environment setup
 
 pip Requirements.txt for library package.
+```
 pip install -r Requirements.txt
- 
+```
+
 ### Step 1: Get your Kaggle API key
 Follow the Authentication section in https://www.kaggle.com/docs/api and download your API key. This key should be a file named "kaggle.json"
  
@@ -42,7 +48,9 @@ You may need to mkdir a directory named ".kaggle"
 After you run download.py, the dataset will be downloaded at this path "../intel-image-classification/". The dataset will be downloaded to the parent folder.
 
 in Linux :
+```
 python download.py
+```
 
 similar in windows:
 Open your Windows Powershell or CMD to "python download.py" or use your python IDE.
@@ -51,15 +59,29 @@ Open your Windows Powershell or CMD to "python download.py" or use your python I
 Just run train.py
 
 in Linux:
+```
 python train.py
-
+```
 in Windows:
+```
 python train.py
-
+```
 ### Step 5 Saved model and used for prediction. 
 The trained model is saved in "model/transformation_model"
 
+## B) Use the model for image and video style transfer. 
+The python script for this part is image_video_prediction_demo.py
+The test image is in the floder "test_content_image", the test video is in "test_content_video"
+The transformation model is in "model/transform_model_epoch_40.h5"
+The path is hard coded in image_video_prediction_demo.py
+```
+python image_video_prediction_demo.py
+```
+the transfered video and image will be generated under the floder, the names are "output.mp4" and "predict.png" respectively. 
+
 # Train the transfer network in Google Colab
+
+## A) training the model (NeuralStyleTransfer.ipynb)
 There is a standalone ipynote book, named "NeuralStyleTransfer.ipynb" in the project folder. 
 You can upload it in google colab.
 
@@ -73,3 +95,10 @@ run the 2nd cell, download the target style image, and the test image.
 ### Stop 2: training and predicting
 run the following cells, for training and testing.
 The ipynb is self-explained with Text.
+
+## B) Video style transfer demo (video_style_transformation.ipynb)
+The video transformation demo is in the file video_style_transformation.ipynb
+You can upload it to google colab and open it.
+You need to upload a h5 model weight file, which is train by part A).
+
+
