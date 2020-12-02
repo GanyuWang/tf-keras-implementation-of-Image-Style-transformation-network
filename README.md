@@ -60,11 +60,11 @@ Just run train.py
 
 in Linux:
 ```
-python train.py
+python Train.py
 ```
 in Windows:
 ```
-python train.py
+python Train.py
 ```
 ### Step 5 Saved model and used for prediction. 
 The trained model is saved in "model/transformation_model"

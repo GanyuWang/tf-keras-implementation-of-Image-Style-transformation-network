@@ -1,3 +1,5 @@
+kaggle
+pillow
 absl-py @ file:///C:/ci/absl-py_1603893176799/work
 astor==0.8.1
 astunparse==1.6.3
