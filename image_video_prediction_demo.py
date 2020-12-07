@@ -31,7 +31,7 @@ assert tf.test.is_built_with_cuda()
 
 
 #%% setting
-model_path = "model/transform_model_epoch_40.h5"
+model_path = "model/model_v0_1_1_epoch_5.h5"
 
 test_image_path = "test_content_image/20123.jpg"
 style_image_path = "style_img/impression_sunrise.jpg"

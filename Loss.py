@@ -35,21 +35,18 @@ from Utility import load_image
 # style image.  
 style_image = load_image("style_img/impression_sunrise.jpg", return_type='tensor')
 
-# content layers
-content_layers = ['block5_conv2'] 
+# content layers (start with 1. )
+content_layers = ['block3_conv1'] 
 num_content_layers = len(content_layers)
 
 # style layers
 style_layers = ['block1_conv1', 
                 'block2_conv1', 
                 'block3_conv1', 
-                'block4_conv1', 
-                'block5_conv1']
+                'block4_conv1']
+
 num_style_layers = len(style_layers)
 
-# weight for style and content
-style_weight=1e-2
-content_weight=1e4
 
 
 # VGG layers.

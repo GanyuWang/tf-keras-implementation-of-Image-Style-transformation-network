@@ -34,18 +34,19 @@ assert tf.test.is_built_with_cuda()
 # file path
 dataset_path = '../intel-image-classification/seg_train/seg_train'
 
+style_image_path = "style_img/impression_sunrise.jpg"
 
 # training parameters
-batch_size = 16
-epochs = 100
+batch_size = 2
+epochs = 5
 
 # whether load model weight from file
-load_model = True
-saved_model_path = "checkpoint/transform_model_epoch_40.h5"
+load_model = False
+saved_model_path = "model/model_1_1_epoch_10.h5"
 
 # loss
-style_weight=1e-2
-content_weight=1e4
+style_weight=1
+content_weight=1
 
 #%% data generator
 train_datagen = ImageDataGenerator(
@@ -74,7 +75,7 @@ transform_model = keras.Model(inputs=inputs, outputs=outputs)
 content_layers = ['block5_conv2'] 
 num_content_layers = len(content_layers)
 # style loss.  
-style_image = load_image("style_img/impression_sunrise.jpg", return_type='tensor')
+style_image = load_image(style_image_path, return_type='tensor')
 style_layers = ['block1_conv1',
                 'block2_conv1',
                 'block3_conv1', 
@@ -121,14 +122,38 @@ checkpoint_filepath = 'checkpoint/'
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_filepath,
     save_weights_only=True,
-    monitor='val_acc',
-    mode='max',
     save_best_only=True)
 
 transform_model.fit(train_generator, epochs=epochs, callbacks=[model_checkpoint_callback])
 
 
 #%% save model (whole model and model weight. )
-transform_model.save("model/model")
-transform_model.save("model/model.h5")
+
+transform_model.save("model/model_v2_1_1_epoch_5.h5")
+
+
+#%% quick image test 
+import matplotlib.pyplot as plt
+
+test_image_path = "test_content_image/20123.jpg"
+transfer_image_save_path = "test_content_image/predict_20123.jpg"
+
+test_img = load_image(test_image_path)
+pred_img = transform_model.predict(test_img)
+style_image = load_image(style_image_path)
+
+plt.figure()
+plt.imshow(style_image[0,])
+
+
+plt.figure()
+plt.imshow(test_img[0,])
+
+plt.figure()
+plt.imshow(pred_img[0,])
+
+# save predict figure
+plt.savefig("predict.png")
+
+
 
