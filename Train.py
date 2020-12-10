@@ -45,8 +45,8 @@ load_model = False
 saved_model_path = "model/model_1_1_epoch_10.h5"
 
 # loss
-style_weight=1
-content_weight=1
+style_weight=1e-2
+content_weight=1e3
 
 #%% data generator
 train_datagen = ImageDataGenerator(
@@ -113,7 +113,7 @@ transform_model.compile(
                 loss=style_content_loss
               )
 
-#%% train. 
+#%% long train. 
 
 if load_model == True:
     transform_model.load_weights(saved_model_path)
@@ -121,14 +121,12 @@ if load_model == True:
 checkpoint_filepath = 'checkpoint/'
 model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_filepath,
-    save_weights_only=True,
-    save_best_only=True)
+    save_weights_only=True, 
+    save_best_only=False)
+
 
 transform_model.fit(train_generator, epochs=epochs, callbacks=[model_checkpoint_callback])
-
-
-#%% save model (whole model and model weight. )
-
+# save model
 transform_model.save("model/model_v2_1_1_epoch_5.h5")
 
 
