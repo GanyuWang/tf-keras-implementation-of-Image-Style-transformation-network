@@ -12,6 +12,12 @@ instead of the Microsoft COCO dataset in google(the dataset in the paper).
 
 The implementation is both on **Linux (project folder)** and **Google colab (standalone ipynb file)**.
 
+<img src="test_content_image/20123.jpg" alt="content" width="256"/>
+<img src="style_img/impression_sunrise.jpg" alt="style" width="256"/>
+<img src="Best.png" alt="result" width="256"/>
+
+
+
 # Train the transfer network in Linux or Windows
 ## A) Training the transfer network
 ### Step 0: Environment setup
