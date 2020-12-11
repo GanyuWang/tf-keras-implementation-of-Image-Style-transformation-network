@@ -50,7 +50,7 @@ load_model = False
 saved_model_path = "model/model_v9_epoch_3.h5"
 
 # loss
-style_weight = 1e-3
+style_weight = (1e-2) /2
 content_weight = 1e3
 
 #%% data generator
@@ -123,7 +123,7 @@ if load_model == True:
 # check range.
 for i in range(1,6):
     transform_model.fit(train_generator, epochs=epochs)
-    transform_model.save("model/model_v13_epoch_%d.h5" % i) 
+    transform_model.save("model/model_v25_epoch_%d.h5" % i) 
 
     
     test_image_path = "test_content_image/20123.jpg"
@@ -135,6 +135,6 @@ for i in range(1,6):
     plt.imshow(pred_img[0,])
     
     # save predict figure
-    plt.savefig("result/predict_v13_epoch_%d.png" % i)
+    plt.savefig("result/predict_v25_epoch_%d.png" % i)
 
 

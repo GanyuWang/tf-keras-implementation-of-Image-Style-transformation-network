@@ -26,6 +26,8 @@ from Loss import extractor
 
 import matplotlib.pyplot as plt
 
+import time
+
 assert tf.test.is_gpu_available()
 assert tf.test.is_built_with_cuda()
 
@@ -66,6 +68,20 @@ plt.imshow(pred_img[0,])
 
 # save predict figure
 plt.savefig("predict.png")
+
+
+#%% time  calculation
+
+time_list = []
+for i in range(1000):
+    t1 = time.time()
+    pred_img = transform_model.predict(test_img)
+    t2 = time.time()
+    t = t2-t1
+    time_list.append(t)
+
+avg_time = np.average(time_list)
+print("the average time is %f" % avg_time)
 
 
 
