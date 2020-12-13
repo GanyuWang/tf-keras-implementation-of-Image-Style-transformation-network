@@ -30,7 +30,7 @@ The implementation is both on **Linux (project folder)** and **Google colab (sta
 
 pip Requirements.txt for library package.
 ```
-pip install -r Requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Step 1: Get your Kaggle API key
