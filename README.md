@@ -2,8 +2,6 @@
 
 This is **Ganyu Wang (Computer Science MSc)**'s Computer Vision Final Project
 
-The model is still not well tuned. Working on. 
-
 Tensorflow-Keras implementation of neural style transformation network.
 The original article is Perceptual Losses for Real-Time Style Transfer and Super-Resolution https://arxiv.org/abs/1603.08155
 
