@@ -5,8 +5,8 @@ This is **Ganyu Wang (Computer Science MSc)**'s Computer Vision Final Project
 Tensorflow-Keras implementation of neural style transformation network.
 The original article is Perceptual Losses for Real-Time Style Transfer and Super-Resolution https://arxiv.org/abs/1603.08155
 
-Used Intel image recognition dataset (https://www.kaggle.com/puneet6060/intel-image-classification)
-instead of the Microsoft COCO dataset in google(the dataset in the paper).
+Used Intel Image Classification dataset (https://www.kaggle.com/puneet6060/intel-image-classification)
+instead of the Microsoft COCO dataset from the original paper.
 
 The implementation is both on **Linux (project folder)** and **Google colab (standalone ipynb file)**.
 
